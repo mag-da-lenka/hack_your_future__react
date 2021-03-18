@@ -27,11 +27,11 @@ const myDateFormat_month_number4 = `${year + 0}/${appendLeadingZeroes(new Date()
 
 
 const toDoArrOfObj = [
-    { nr: 1, task: 'Sing with the cat', date: myDateFormat_month_number1 },
-    { nr: 2, task: 'Code for squirrels', date: myDateFormat_month_number2 },
-    { nr: 3, task: 'Comb the tail', date: myDateFormat_month_number3 },
-    { nr: 4, task: 'Listen to Sepultura', date: myDateFormat_month_number4 }
-]; 
+    { nr: 1, task: 'sing with the cat', date: myDateFormat_month_number1 },
+    { nr: 2, task: 'code for squirrels', date: myDateFormat_month_number2 },
+    { nr: 3, task: 'comb the tail', date: myDateFormat_month_number3 },
+    { nr: 4, task: 'listen to Sepultura', date: myDateFormat_month_number4 }
+];
 // console.log(toDoArrOfObj);
 
 class TodoList extends React.Component {
@@ -43,7 +43,8 @@ class TodoList extends React.Component {
                 return (
                     <ul key={tasks.nr}>
                         <li >
-                            {tasks.nr}. {tasks.date}: {tasks.task}
+                            {tasks.nr}. {tasks.date}: <br />
+                            {tasks.task}
                         </li>
                     </ul>
                 );
@@ -53,9 +54,9 @@ class TodoList extends React.Component {
 
         return <main>
 
-            <h2>To do list: </h2>
+            <h2>:: &nbsp; to do list &nbsp; : : </h2>
             {toDoArrOfObj_mapped}
-            
+
         </main>;
     }
 }

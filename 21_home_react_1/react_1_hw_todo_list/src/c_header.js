@@ -7,12 +7,12 @@ const year = new Date().getFullYear();
 const months_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const month_name = months_names[new Date().getMonth()];
 // const month_number = appendLeadingZeroes(new Date().getMonth() + 1);
-const days_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];  // 0 - 1 - 2 - 3 - 4 - 5 - 6
-const day_name = days_names[new Date().getDay()];
+// const days_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];  // 0 - 1 - 2 - 3 - 4 - 5 - 6
+// const day_name = days_names[new Date().getDay()];
 const day_number = appendLeadingZeroes(new Date().getDate());
-const hours = appendLeadingZeroes(new Date().getHours());
-const minutes = appendLeadingZeroes(new Date().getMinutes());
-const seconds = appendLeadingZeroes(new Date().getSeconds());
+// const hours = appendLeadingZeroes(new Date().getHours());
+// const minutes = appendLeadingZeroes(new Date().getMinutes());
+// const seconds = appendLeadingZeroes(new Date().getSeconds());
 function appendLeadingZeroes(n) { if (n <= 9) { return "0" + n; } return n }
 // const myDateFormat_month_number = `${year}/${month_number}/${day_number} (${day_name})  ${hours}:${minutes}:${seconds} GMT+0100 (CEST)`;
 // console.log(myDateFormat_month_number); 
