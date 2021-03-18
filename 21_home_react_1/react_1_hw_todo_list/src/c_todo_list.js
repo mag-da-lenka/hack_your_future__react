@@ -54,7 +54,7 @@ class TodoList extends React.Component {
 
         return <main>
 
-            <h2>:: &nbsp; to do list &nbsp; : : </h2>
+            <h2>: : &nbsp; to do list &nbsp; : : </h2>
             {toDoArrOfObj_mapped}
 
         </main>;
