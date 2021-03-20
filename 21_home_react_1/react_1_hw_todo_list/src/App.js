@@ -3,13 +3,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; 
+import './index.css';
 
 import Header from './c_header';
 import TodoList from './c_todo_list';
 import Footer from './c_footer';
-
-
+import Luxon from './c_luxon_fun';
 
 class App extends React.Component {
   render() {
@@ -17,13 +16,14 @@ class App extends React.Component {
       <div>
         <Header />
         <TodoList />
+        <Luxon />
         <Footer />
       </div>
     );
   }
 }
 
-const rootsBloodyRoots = document.getElementById("root")
-ReactDOM.render(<App />, rootsBloodyRoots);
+const potato = document.getElementById("root")
+ReactDOM.render(<App />, potato);
 
 export default App;
