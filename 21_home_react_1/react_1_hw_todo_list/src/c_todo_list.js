@@ -28,7 +28,7 @@ const toDoArrOfObj = [
 
 class TodoList extends React.Component {
     render() {
-        const toDoArrOfObj_mapped = toDoArrOfObj
+        const tasklist = toDoArrOfObj
             .map((tasks) => {
                 return (
                     <ul key={tasks.nr}>
@@ -39,8 +39,8 @@ class TodoList extends React.Component {
                 );
             });
         return <main>
-            <h2>: : &nbsp; to do list &nbsp; : : </h2>
-            {toDoArrOfObj_mapped}
+            <h2>: : &nbsp; to do list 1 &nbsp; : : </h2>
+            {tasklist}
         </main>;
     }
 }

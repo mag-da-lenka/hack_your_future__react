@@ -15,9 +15,9 @@ var localeDate = DateTime
     .toLocaleString();
 
 const now = DateTime.now();
-console.log(now.loc)
-console.log(now.c.year)
-console.log(DateTime.fromISO("2017-05-15"))
+// console.log(now.loc)
+// console.log(now.c.year)
+// console.log(DateTime.fromISO("2017-05-15"))
 
 const dt = DateTime.now();
 const m_long = {
@@ -26,16 +26,15 @@ const m_long = {
 };
 
 function Luxon() {
-
     return (
         <div>
-            <h2>: : luxon fun : : &nbsp; : : </h2>
+            <h2>: : luxon fun : :  </h2>
             <ul>
-                <li>01 : : today is {localeDate} : :</li>
-                <li>02 : : today is {now.c.day} {now.c.month} {now.c.year}</li>
-                <li>03 : : today is {dt.toLocaleString(DateTime.DATETIME_MED)}</li>
-                <li>04 : : today is {dt.setLocale('en-GB').toLocaleString(m_long)}</li>
-                <li>05 : : today is {dt.toLocaleString(DateTime.DATE_FULL)}</li>
+                <li>today is {localeDate} : :</li>
+                <li>today is {now.c.day} {now.c.month} {now.c.year}</li>
+                <li>today is {dt.toLocaleString(DateTime.DATETIME_MED)}</li>
+                <li>today is {dt.setLocale('en-GB').toLocaleString(m_long)}</li>
+                <li>today is {dt.toLocaleString(DateTime.DATE_FULL)}</li>
             </ul>
         </div>
     );

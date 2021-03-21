@@ -9,6 +9,8 @@ import Header from './c_header';
 import TodoList from './c_todo_list';
 import Footer from './c_footer';
 import Luxon from './c_luxon_fun';
+import Todolist2 from './c_todo_list_2';
+
 
 class App extends React.Component {
   render() {
@@ -16,6 +18,7 @@ class App extends React.Component {
       <div>
         <Header />
         <TodoList />
+        <Todolist2 />
         <Luxon />
         <Footer />
       </div>
