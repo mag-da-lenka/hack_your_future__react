@@ -15,7 +15,7 @@ const dd_2 = `${year + 2} / ${month_number} / ${day_number}
               ${hours}:${minutes}:${seconds} GMT+0100 (CEST)`;
 const dd_3 = `${year + 3} / ${month_number} / ${day_number}   
               ${hours}:${minutes}:${seconds} GMT+0100 (CEST)`;
-const dd_4 = `${year + 0} / ${month_number + 3} / ${16} (${'Bloomsday'})   
+const dd_4 = `${year + 0} / ${'06'} / ${16} (${'Bloomsday'})   
               ${hours}:${minutes}:${seconds} GMT+0100 (CEST)`;
 
 
