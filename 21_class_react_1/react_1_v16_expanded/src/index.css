@@ -1,0 +1,34 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  margin: 0;
+  padding: 1vh 1vw 1vh 3vw;
+  background-image: linear-gradient(to bottom, rgb(59, 100, 95), rgb(51, 78, 75));
+  color: rgb(228, 228, 228);
+  font-family: 'Abel';
+  max-width: 100vw;
+  height: 200vh;
+}
+
+h1, h2, h3, p, ul, li, a {
+  color: rgb(228, 228, 228);
+  border: none;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  line-height: 1em
+}
+
+h1 {
+  color: rgb(194, 165, 181);
+}
+
+p, ul, li {
+  font-size: 1.9vh;
+  list-style-position: inside;
+}
