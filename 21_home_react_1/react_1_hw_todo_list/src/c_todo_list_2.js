@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function append0(n) { if (n <= 9) { return "0" + n; } return n }
 
-const allTasks = [
+const todos2 = [
   {
     nr: append0(5),
     task: 'jump with the dog',
@@ -31,7 +31,7 @@ const allTasks = [
 
 const EachTask = ({ nr, task, date }) => {
   return (
-    <li key={uuidv4()}>
+    <li>
       {nr} : : {date} : : {task}
     </li>
   );
@@ -41,11 +41,11 @@ const EachTask = ({ nr, task, date }) => {
 const Todolist2 = () => {
 
   return (
-    <div>
+    <>
       <h2>: : to do list 2 : : </h2>
-      {allTasks.map((aTask) => {
+      {todos2.map((aTask) => {
         return (
-          <div>
+          <div key={uuidv4()}>
             <ul>
               <EachTask
                 nr={aTask.nr}
@@ -55,7 +55,7 @@ const Todolist2 = () => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

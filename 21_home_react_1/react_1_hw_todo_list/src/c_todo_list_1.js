@@ -19,30 +19,32 @@ const dd_4 = `${year + 0} / ${'06'} / ${16} (${'Bloomsday'})
               ${hours}:${minutes}:${seconds} GMT+0100 (CEST)`;
 
 
-const toDoArrOfObj = [
+const todos1 = [
     { nr: append0(1), task: 'sing with the cat', date: dd_1 },
     { nr: append0(2), task: 'code for squirrels', date: dd_2 },
     { nr: append0(3), task: 'comb the tail', date: dd_3 },
     { nr: append0(4), task: 'listen to Sepultura', date: dd_4 }
 ];
 
-class TodoList extends React.Component {
+class TodoList1 extends React.Component {
     render() {
-        const tasklist = toDoArrOfObj
-            .map((tasks) => {
+        const tasklist1 = todos1
+            .map((task) => {
                 return (
-                    <ul key={tasks.nr}>
+                    <ul key={task.nr}>
                         <li>
-                            {tasks.nr} : :  {tasks.date} : : {tasks.task}
+                            {task.nr} : :  {task.date} : : {task.task}
                         </li>
                     </ul>
                 );
             });
-        return <main>
-            <h2>: : &nbsp; to do list 1 &nbsp; : : </h2>
-            {tasklist}
-        </main>;
+        return (
+            <>
+                <h2>: : &nbsp; to do list 1 &nbsp; : : </h2>
+                {tasklist1}
+            </>
+        )
     }
 }
 
-export default TodoList;
+export default TodoList1;
