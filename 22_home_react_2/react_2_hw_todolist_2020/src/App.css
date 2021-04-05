@@ -51,11 +51,11 @@ header, footer, .counter, .timer, ul, .add_item_btn_div {
 
 .timer-digits {
   font-weight: bold;
-  /* border-left: 2px solid rgba(135, 206, 250, 0.404); */
-  /* border-right: 2px solid rgba(135, 206, 250, 0.404); */
-  padding: 0% 1.5% 0.25% 1.5%;
-  margin: 1% 1.5% 0.25% 1.5%;
-  /* border-radius: 10px; */
+  /* border: 3px solid rgba(194, 165, 181); */
+  margin: 0% 1% 0% 1%;
+  display: inline-block;
+  /* inline-block b/c of span issues in React */
+  min-width: 50px
 }
 
 .add_item_btn_div {
@@ -104,7 +104,7 @@ button, .del_item_btn {
   text-align: center;
   background-color: rgb(51, 78, 75);
   cursor: pointer;
-  border: 3.0px solid rgba(228,228,228, 0.589);
+  border: 3.0px solid rgba(228, 228, 228, 0.589);
   border-radius: 15px;
   box-shadow: 10px 10px 8px #888888;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.274);
@@ -113,7 +113,7 @@ button, .del_item_btn {
 
 button:hover {
   color: rgb(51, 78, 75);
-  background-color: rgb(228, 228, 228); 
+  background-color: rgb(228, 228, 228);
   outline: none;
 }
 
@@ -124,8 +124,6 @@ button:hover {
   padding: 0% 0% 0.0% 0%;
   font-size: 30px;
 }
-
-
 
 .list-top {
   /* border: black solid 2px; */
@@ -244,22 +242,6 @@ button:hover {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 a:link {
   margin: 0% 1% 0% 1%;

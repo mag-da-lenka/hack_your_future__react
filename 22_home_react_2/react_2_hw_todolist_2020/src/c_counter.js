@@ -8,22 +8,22 @@ class Counter extends React.Component {
     }
 
     increment = () => {
-        const currentValue = this.state.value; console.log("incrementing");
+        const currentValue = this.state.value; console.log("counter incrementing ");
         this.setState({ value: currentValue + 1 });
     };
     decrement = () => {
-        const currentValue = this.state.value; console.log("decrementing");
+        const currentValue = this.state.value; console.log("counter decrementing");
         if (currentValue === 0) { alert("you can't decrement") }
         else { this.setState({ value: currentValue - 1 }); }
     };
     reset = () => {
-        this.setState({ value: this.props.initialValue }); console.log("reset");
+        this.setState({ value: this.props.initialValue }); console.log("counter reset");
     };
 
     render() {
         return (
             <div className="counter">
-                <h1> : :  I'm a counter : :  {this.state.value} : : </h1> <br/>
+                <h1> : : counter : :  {this.state.value} : : </h1> <br/>
                 {console.log(this.state.value)} 
                 <div className="btns-rows">
                     <button onClick={this.increment}>increment</button>

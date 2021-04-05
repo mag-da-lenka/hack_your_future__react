@@ -19,7 +19,7 @@ const myDateFormat_month_name_line2 = `${hours}:${minutes}:${seconds} GMT+0100`;
 function Header() {
   return (
     <header>
-      <h1>React-2 homework /Magda</h1> <br />
+      <h1>: : react-2 homework : : magda : : </h1> <br />
       <p className="header-date">   Today is &nbsp;
         {myDateFormat_month_name_line1}<br /><br />
         {myDateFormat_month_name_line2}
