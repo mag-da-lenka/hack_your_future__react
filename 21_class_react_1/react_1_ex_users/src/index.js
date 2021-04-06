@@ -1,31 +1,34 @@
-// by Y + my additions. Removed the default. We only need 2 lines to start: 
+// by Y + my additions. Removed the default. 
+// We only need 2 lines to start: 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 // and css if you like
 import './index.css';
+// my addition to get unique keys
+import { v4 as uuidv4 } from 'uuid';
+// console.log(uuidv4()); //different each time
+// console.log(uuidv4());
 
-import { v4 as uuidv4 } from 'uuid'; 
-console.log(uuidv4()); console.log(uuidv4())
-//different each time
+
 
 
 function HelloUser(props) {
 
     console.log(`HelloUser > props: `, props);
 
-
     let result;
+
     if (props.age < 18) result = "you can't drive";
     else if (!props.age) result = "how old are you ?"; // me!
     else result = "go ahead";
 
     return (
-        <li key={uuidv4()}> result from HelloUser: &nbsp;
-        | hi  &nbsp; | {props.name} | &nbsp; {props.age} &nbsp;
-            {/* | This is your key: key={uuidv4()}  */}
-        | &nbsp; ID = &nbsp; {props.id} &nbsp;
-        | &nbsp; RESULT = &nbsp; {result}
+        <li key={uuidv4()}>
+            li : : result from HelloUser via props: <br />
+            Hello &nbsp; {props.name} <br />
+            age: &nbsp; {props.age} <br />
+            id: &nbsp; ID = &nbsp; {props.id} <br />
+            result: {result} <br /> <br />
         </li>
     );
 
@@ -53,19 +56,21 @@ class SayHiToMultiplePeopleClass extends React.Component {
         const result = multiplePeople
             .map(person => {
                 return <HelloUser
+                    key={uuidv4()}
                     name={person.name}
                     age={person.age}
                 />;
             });
+
         console.log(`result of SayHiToMultiplePeopleClass: `, result)
 
-        return <ul>
-            result from SayHiToMultiplePeopleClass, <br />
-            which returns the HelloUser(props) function
-            <br /><br />
-            {result}
-        </ul>;
-
+        return (
+            <ul>
+                ul : : result from SayHiToMultiplePeopleClass, <br />
+                which returns the HelloUser(props) function <br />
+                {result}
+            </ul>
+        )
     }
 
 }
@@ -78,11 +83,13 @@ ReactDOM.render(
 
     <div id="test">
 
-        <h1> : : week 21 : : react-1 : : <br></br> : : class : : <br></br>: : users exercise : : </h1>
+        <h1> : : week 21 : : react-1 : : <br /> : : class : : <br />: : users exercise : : </h1>
         <h2> : : hello squirrels : : parallel world connection test : : </h2>
 
-        <HelloUser name='younes' age={25} id='test for id' />
-        <HelloUser name='fernando' age='24' />  <br /><br />
+        <ul> ul : : no arr <br />
+            <HelloUser name='younes' age={25} id='test for id' />
+            <HelloUser name='fernando' age='24' />  
+        </ul>
 
         <SayHiToMultiplePeopleClass people={users} />
 
