@@ -15,6 +15,7 @@ const myDateFormat_month_number2 = `${year + 2}/${month_number}/${day_number} ($
 const myDateFormat_month_number3 = `${year + 3}/${month_number}/${day_number} (${day_name})  ${hours}:${minutes}:${seconds}`;
 const myDateFormat_month_number4 = `${year + 10}/${appendLeadingZeroes(new Date().getMonth() + 4)}/${16} (${'Bloomsday'})  ${hours}:${minutes}:${seconds}`;
 
+
 const randomtasks = [
     { "nr": 101, "description": 'Sing with the cat', "date": myDateFormat_month_number1, completed: false },
     { "nr": 102, "description": 'Code for squirrels', "date": myDateFormat_month_number2, completed: false },
@@ -25,65 +26,39 @@ const randomtasks = [
     { "nr": 107, "description": 'Have a pizza and nuts', "date": myDateFormat_month_number4, completed: false }
 ];
 
-// console.log(randomtasks.length)
-
-// get a random number from 0 to randomtasks.length
-function getRandomNumber(min, max) {
-    return Math.random() * (max - min) + min;
-}
-console.log(getRandomNumber(0, randomtasks.length).toFixed(0));
-
-let aRandomTask = randomtasks[Math.floor(Math.random() * randomtasks.length)]
-console.log('aRandomTask', aRandomTask)
-
-// let aRandomTask = randomtasks
-//     .map((aTask) => ({
-//         number_key: aTask.nr,
-//         description_key: aTask.description
-//     }));
-
-
-
-
-
-
 
 
 const SingleTask = ({ todo, checkTask, deleteTask }) => (
 
-
     <li>
-        <div style={{ textDecoration: todo.completed ? "line-through rgb(228, 228, 228)" : "none" }} className="list-width">
-            {todo.nr}. {todo.description}   <br /> &nbsp; &nbsp; &nbsp;
-                {todo.date}
+        {/* nr description date */}
+        <div style={{ textDecoration: todo.completed ? "line-through rgb(228, 228, 228)" : "none" }}
+            className="list-width">
+            {todo.nr}. {todo.description} <br /> &nbsp; &nbsp; &nbsp;
+            {todo.date}
         </div>
 
+        {/* checkbox */}
         <label className="container"> &nbsp;
             <input className="checkmark"
                 type="checkbox"
                 checked={todo.completed}
                 onChange={checkTask} />
-            <span
-                className="checkmark">
-            </span>
+            <span className="checkmark"> </span>
         </label>
-
-
-        {/* {console.log(todo.nr, todo.description, todo.date)} */}
-
+        
+        {/* delete button */}
         <button className="del_item_btn" onClick={deleteTask}>
             delete
-            </button>
+        </button>
 
     </li>
-
-
 
 );
 
 
 
-class TaskListClass extends React.Component {
+class TaskListHooks extends React.Component {
 
     state = {
         tasks: [
@@ -142,7 +117,7 @@ class TaskListClass extends React.Component {
             <div>
 
                 <div className="add_item_btn_div" >
-                    <h2 className="list-top"> add random tasks : : class  </h2>
+                    <h2 className="list-top"> add random tasks : : hooks [to be]  </h2>
                     <button onClick={this.addTask} className="add_item_btn">+</button>
                 </div>
 
@@ -177,4 +152,4 @@ class TaskListClass extends React.Component {
 
 };
 
-export default TaskListClass;
+export default TaskListHooks;

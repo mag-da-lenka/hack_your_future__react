@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Timer extends React.Component {
+class TimerClass extends React.Component {
 
     state = { timer: 0 }
 
@@ -9,22 +9,23 @@ class Timer extends React.Component {
         console.log('componentDidMount')
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        console.log("componentWillUnmount = clearInterval");
+    }
+
+
+    // //
     increment = () => {
         const { timer } = this.state;
         this.setState({ timer: timer + 1 });
         console.log("timer incrementing");
     };
-
     decrement = () => {
         const { timer } = this.state;
         this.setState({ timer: timer - 1 });
         console.log("timer decrementing");
     };
-
-    componentWillUnmount() {
-        clearInterval(this.timer);
-        console.log("componentWillUnmount = clearInterval");
-    }
 
 
     // //
@@ -33,29 +34,29 @@ class Timer extends React.Component {
         console.log("stopTimer = clearInterval");
     };
     //
-    startSlowTimer2000 = () => {
+    forward2000 = () => {
         this.stopTimer(); // === clearInterval(this.timer)
         this.timer = setInterval(this.increment, 2000);
         console.log("startSlowTimer2000");
     };
-    startFastTimer10 = () => {
+    forward10 = () => {
         this.stopTimer(); // === clearInterval(this.timer)
         this.timer = setInterval(this.increment, 10);
         console.log("startFastTimer10");
     };
     //
-    startReverseTimer500 = () => {
+    back500 = () => {
         this.stopTimer(); // === clearInterval(this.timer)
         this.timer = setInterval(this.decrement, 500);
         console.log("startReverseTimer500");
     };
-    startReverseTimer10 = () => {
+    back10 = () => {
         this.stopTimer(); // === clearInterval(this.timer)
         this.timer = setInterval(this.decrement, 10);
         console.log("startReverseTimer10");
     };
     //
-    restartNormalTimer1000 = () => {
+    forward1000 = () => {
         this.stopTimer(); // === clearInterval(this.timer)
         this.timer = setInterval(this.increment, 1000);
         console.log("restartNormalTimer1000");
@@ -83,18 +84,18 @@ class Timer extends React.Component {
         return (
             <div className="timer">
                 <h1>
-                    : :  timer : : <br />  You've been here for
+                    : :  timer : : class : :  <br />  You've been here for
                     <span className="timer-digits"> {timer} </span>
-                    second(s). <br />
+                    second(s). <br /><br />
                 </h1>
                 <div className="btns-rows">
-                    <button onClick={this.startSlowTimer2000}>forward 2.0s</button>
-                    <button onClick={this.startFastTimer10}>forward 0.010s</button>
-                    <button onClick={this.restartNormalTimer1000}>forward 1.0s</button>
+                    <button onClick={this.forward2000}>forward 2.0s</button>
+                    <button onClick={this.forward10}>forward 0.010s</button>
+                    <button onClick={this.forward1000}>forward 1.0s</button>
                 </div>
                 <div className="btns-rows">
-                    <button onClick={this.startReverseTimer500}>back 0.5s</button>
-                    <button onClick={this.startReverseTimer10}>back 0.010s</button>
+                    <button onClick={this.back500}>back 0.5s</button>
+                    <button onClick={this.back10}>back 0.010s</button>
                 </div>
                 <div className="btns-rows">
                     <button onClick={this.stopTimer}> stop </button>
@@ -107,4 +108,4 @@ class Timer extends React.Component {
 
 }
 
-export default Timer;
+export default TimerClass;

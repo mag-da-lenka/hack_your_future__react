@@ -37,16 +37,27 @@ h1, .no-tasks {
 .header-date {
   margin: 0% 0% 1% 0%;
   padding: 1% 1% 1% 1%;
-  font-size: 1.3em;
+  font-size: 1.8em;
   text-align: center;
 }
 
-header, footer, .counter, .timer, ul, .add_item_btn_div {
+header, footer, .clocks, .counter, .timer, ul, .add_item_btn_div {
   margin: 2% 0% 5% 0%;
   padding: 3% 2% 5% 2%;
   border: solid 1px rgb(194, 165, 181);
   border-radius: 15px;
   box-shadow: 11px 2px 15px rgba(0, 0, 0, 0.137);
+}
+
+.clocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.clock {
+  padding: 1% 5% 1% 5%; 
+  text-align: left;
 }
 
 .timer-digits {

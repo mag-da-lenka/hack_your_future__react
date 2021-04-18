@@ -1,5 +1,5 @@
 import React from 'react';
-import Clock from './c_clock';
+// import Clock from './c_clock';
 
 // DATE FORMATTING
 const year = new Date().getFullYear();
@@ -28,7 +28,7 @@ function Header() {
         {/* {myDateFormat_month_name_line2} */}
       </div>
 
-      <Clock />
+      {/* <Clock /> */}
 
       <div className="header-date"> instructions:
         <a href="https://github.com/HackYourFuture-CPH/React/blob/master/week2/homework.md">

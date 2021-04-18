@@ -4,26 +4,36 @@ import React from 'react';
 import './App.css';
 
 import Header from './c_header';
-// import Clock from './c_clock';
-import Timer from './c_timer';
-import Counter from './c_counter';
-import TaskList from './c_todolist_class';
-import TaskListFunc from './c_todolist_func';
+import ClockClass from './c_clock_class';
+import ClockHooks from './c_clock_hooks';
+import TimerClass from './c_timer_class';
+import TimerHooks from './c_timer_hooks';
+import CounterClass from './c_counter_class';
+import CounterHooks from './c_counter_hooks';
+import TodoListClass from './c_todolist_class';
+import TodoListHooks from './c_todolist_hooks';
 import Footer from './c_footer';
+
+
 
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <Header />
-        {/* <Clock /> is inside Header :) */}
-        <Timer />
-        <Counter initialValue={666} />
-        <TaskList />
-        <TaskListFunc />
+        <div className="clocks">
+          <ClockClass />
+          <ClockHooks />
+        </div>
+        <TimerClass />
+        <TimerHooks initialValue={1} />
+        <CounterClass initialValue={666} />
+        <CounterHooks initialValue={666} />
+        <TodoListClass />
+        <TodoListHooks />
         <Footer />
-      </div>
+      </>
     );
   }
 }

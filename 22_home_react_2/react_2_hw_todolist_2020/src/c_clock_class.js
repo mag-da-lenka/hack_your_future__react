@@ -18,7 +18,7 @@ import React from 'react';
 
 
 
-class Clock extends React.Component {
+class ClockClass extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,25 +39,26 @@ class Clock extends React.Component {
 
     render() {
         return (
-            <div className="header-date">
+            <div className="clock">
+                <h2> clock : : class </h2> <br />
                 {/* Time <br /><br /> */}
+                {/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeStringhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString */}
+                {this.state.date.toLocaleTimeString('ko-KR')}<br /> 
+                {this.state.date.toLocaleTimeString('en-US', { timeZone: 'UTC', timeZoneName: 'short' })}<br />
+                {this.state.date.toLocaleTimeString('ar-EG')}<br />
                 {this.state.date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })} <br />
                 {this.state.date.toLocaleTimeString('en-GB')}<br />
-                {this.state.date.toLocaleTimeString('en-US', { timeZone: 'UTC', timeZoneName: 'short' })}<br />
+                {this.state.date.toLocaleTimeString(['ban', 'id'])}<br />
                 {this.state.date.toLocaleTimeString('en-US', { hour12: false })}<br />
-                {this.state.date.toLocaleTimeString('en-US')}<br />
-                {this.state.date.toLocaleTimeString('ko-KR')}<br />
-                {this.state.date.toLocaleTimeString('ar-EG')}<br />
-                {this.state.date.toLocaleTimeString(['ban', 'id'])}
-                {/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeStringhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString */}
+                {/* <span>&nbsp; {this.state.date.toLocaleTimeString('en-US')}</span><br /> */}
             </div>
         );
     }
-    
+
 }
 
 // console.log(new Date().toString())
 // console.log(new Date().toLocaleTimeString())
 
 
-export default Clock
+export default ClockClass
