@@ -1,9 +1,10 @@
-import React from 'react';
+import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 // DATE FORMATTING
 const year = new Date().getFullYear();
 const month_number = appendLeadingZeroes(new Date().getMonth() + 1);
-const days_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];  // 0 - 1 - 2 - 3 - 4 - 5 - 6
+const days_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frnray", "Saturday"];  // 0 - 1 - 2 - 3 - 4 - 5 - 6
 const day_name = days_names[new Date().getDay()];
 const day_number = appendLeadingZeroes(new Date().getDate());
 const hours = appendLeadingZeroes(new Date().getHours());
@@ -15,141 +16,121 @@ const myDateFormat_month_number2 = `${year + 2}/${month_number}/${day_number} ($
 const myDateFormat_month_number3 = `${year + 3}/${month_number}/${day_number} (${day_name})  ${hours}:${minutes}:${seconds}`;
 const myDateFormat_month_number4 = `${year + 10}/${appendLeadingZeroes(new Date().getMonth() + 4)}/${16} (${'Bloomsday'})  ${hours}:${minutes}:${seconds}`;
 
+const todos = [
+    { "nr": 1, "description": 'Sing with the cat', "date": myDateFormat_month_number1 },
+    { "nr": 2, "description": 'Code for squirrels', "date": myDateFormat_month_number2 },
+    { "nr": 3, "description": 'Comb the tail', "date": myDateFormat_month_number3 },
+    { "nr": 4, "description": 'Listen to Sepultura', "date": myDateFormat_month_number4 },
+    { "nr": 5, "description": 'Swim, bike and hike', "date": myDateFormat_month_number4 },
+    { "nr": 6, "description": 'Celebrate being 50', "date": myDateFormat_month_number4 },
+    { "nr": 7, "description": 'Have a pizza and nuts', "date": myDateFormat_month_number4 },
+    { "nr": 666, "description": 'Close the laptop and scream "React is hell." ', "date": myDateFormat_month_number4 }
+];
 
 const randomtasks = [
-    { "nr": 101, "description": 'Sing with the cat', "date": myDateFormat_month_number1, completed: false },
-    { "nr": 102, "description": 'Code for squirrels', "date": myDateFormat_month_number2, completed: false },
-    { "nr": 103, "description": 'Comb the tail', "date": myDateFormat_month_number3, completed: false },
-    { "nr": 104, "description": 'Listen to Sepultura', "date": myDateFormat_month_number4, completed: false },
-    { "nr": 105, "description": 'Swim, bike and hike', "date": myDateFormat_month_number4, completed: false },
-    { "nr": 106, "description": 'Celebrate being 50', "date": myDateFormat_month_number4, completed: false },
-    { "nr": 107, "description": 'Have a pizza and nuts', "date": myDateFormat_month_number4, completed: false }
+    { "nr": 101, "description": 'Sing with the cat', "date": myDateFormat_month_number1 },
+    { "nr": 102, "description": 'Code for squirrels', "date": myDateFormat_month_number2 },
+    { "nr": 103, "description": 'Comb the tail', "date": myDateFormat_month_number3 },
+    { "nr": 104, "description": 'Listen to Sepultura', "date": myDateFormat_month_number4 },
+    { "nr": 105, "description": 'Swim, bike and hike', "date": myDateFormat_month_number4 },
+    { "nr": 106, "description": 'Celebrate being 50', "date": myDateFormat_month_number4 },
+    { "nr": 107, "description": 'Have a pizza and nuts', "date": myDateFormat_month_number4 }
 ];
 
 
+function SingleTask({ nr, description, date, deleteTask }) {
 
-const SingleTask = ({ todo, checkTask, deleteTask }) => (
+    const [checked, setChecked] = useState(false);
+    const checkTask = () => { setChecked(true); };
+   
 
-    <li>
-        {/* nr description date */}
-        <div style={{ textDecoration: todo.completed ? "line-through rgb(228, 228, 228)" : "none" }}
-            className="list-width">
-            {todo.nr}. {todo.description} <br /> &nbsp; &nbsp; &nbsp;
-            {todo.date}
-        </div>
+    return (
 
-        {/* checkbox */}
-        <label className="container"> &nbsp;
+        <li >
+
+            {/* nr description date */}
+            <div className="list-width">
+                <div
+                    style={{ textDecoration: checked ? "line-through rgb(228, 228, 228)" : "none" }}
+                    className={checked ? "checked" : "not-checked"}
+                >   {nr}: {description} <br /> &nbsp; &nbsp; &nbsp;
+                    {date}
+                </div>
+            </div>
+
+            {/* checkbox */}
+            <label className="container"> &nbsp;
             <input className="checkmark"
-                type="checkbox"
-                checked={todo.completed}
-                onChange={checkTask} />
-            <span className="checkmark"> </span>
-        </label>
-        
-        {/* delete button */}
-        <button className="del_item_btn" onClick={deleteTask}>
-            delete
-        </button>
+                    type="checkbox"
+                    onChange={checkTask} 
+                    />
+                    
+                <span className="checkmark"> </span>
+            </label>
 
-    </li>
+            {/* delete button */}
+            <button className="del_item_btn" onClick={() => deleteTask(nr)}>
+                delete
+            </button>
 
-);
+        </li>
+    );
+}
 
 
 
-class TaskListHooks extends React.Component {
+function TodoListFunc({ todos }) {
 
-    state = {
-        tasks: [
-            { "nr": 1, "description": 'Sing with the cat', "date": myDateFormat_month_number1, completed: false },
-            { "nr": 2, "description": 'Code for squirrels', "date": myDateFormat_month_number2, completed: false },
-            { "nr": 3, "description": 'Comb the tail', "date": myDateFormat_month_number3, completed: false },
-            { "nr": 4, "description": 'Listen to Sepultura', "date": myDateFormat_month_number4, completed: false },
-            { "nr": 5, "description": 'Swim, bike and hike', "date": myDateFormat_month_number4, completed: false },
-            { "nr": 6, "description": 'Celebrate being 50', "date": myDateFormat_month_number4, completed: false },
-            { "nr": 7, "description": 'Have a pizza and nuts', "date": myDateFormat_month_number4, completed: false },
-            { "nr": 666, "description": 'Close the laptop and scream "React is hell." ', "date": myDateFormat_month_number4, completed: false }
-        ]
+    const [defaultTodos, updateDefaultTodos] = useState(todos);
+
+    const addTask = () => {
+        let newTodo =
+            randomtasks[Math.floor(Math.random() * randomtasks.length)]
+        const updatedTodosPlus = defaultTodos
+            .concat(newTodo);
+        updateDefaultTodos(updatedTodosPlus);
     };
 
-    addTask = () => {
-        let newTodo = randomtasks[Math.floor(Math.random() * randomtasks.length)]
-        this.setState({
-            tasks:
-                [...this.state.tasks,
-                    newTodo]
-        });
-    }
+    const deleteTask = (nr) => {
+        const updatedTodosMinus = defaultTodos
+            .filter((todo) => todo.nr !== nr);
+        updateDefaultTodos(updatedTodosMinus);
+    };
 
-    checkTask = (currentIndex) => {
-        this.setState({
-            tasks: this.state.tasks.map((todo, index) => {
-                if (currentIndex === index) {
-                    return {
-                        nr: todo.nr,
-                        description: todo.description,
-                        date: todo.date,
-                        completed: !todo.completed,
-                    };
-                }
-                else {
-                    return todo;
-                }
-            })
-        })
-    }
-
-    deleteTask = (currentIndex) => {
-        this.setState({
-            tasks: this.state.tasks
-                .filter((_todo, index) => currentIndex !== index)
-        })
-    }
-
-
-    render() {
-
-        const notasks = !this.state.tasks.length
-
-        return (
-
-            <div>
-
-                <div className="add_item_btn_div" >
-                    <h2 className="list-top"> add random tasks : : hooks [to be]  </h2>
-                    <button onClick={this.addTask} className="add_item_btn">+</button>
-                </div>
-
-                {notasks ?
-                    (<h3 className="no-tasks">!!!! no tasks !!1!1oneoneone</h3>)
-                    :
-                    (<ul>
-
-                        {this.state.tasks.map((todo, index) =>
-                            <SingleTask
-                                key={index}
-                                todo={todo}
-                                checkTask={() => this.checkTask(index)}
-                                deleteTask={() => this.deleteTask(index)}
-                            />)}
-                    </ul>)
-                }
-                <br />
-
+    return (
+        <>
+            <div className="add_item_btn_div">
+                <h2 className="list-top"> add random tasks : : hooks </h2>
+                <button onClick={addTask} className="add_item_btn">+</button>
             </div>
-        );
+
+            <ul>
+                {!defaultTodos.length
+                    ?
+                    <h3 className="no-tasks">!!!! no tasks !!1!1oneoneone</h3>
+                    :
+                    defaultTodos.map((todo) => (
+                        <SingleTask
+                            key={uuidv4()}
+                            nr={todo.nr}
+                            description={todo.description}
+                            date={todo.date}
+                            deleteTask={deleteTask}
+                        />
+                    ))
+                }
+            </ul>
+        </>
+    );
+}
 
 
-    }
+function TodoListHooks() {
+    return (
+        <>
+            <TodoListFunc todos={todos} />
+        </>
+    );
+}
 
-
-
-
-
-
-
-
-};
-
-export default TaskListHooks;
+export default TodoListHooks;

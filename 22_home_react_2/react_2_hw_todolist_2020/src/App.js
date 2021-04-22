@@ -7,14 +7,13 @@ import Header from './c_header';
 import ClockClass from './c_clock_class';
 import ClockHooks from './c_clock_hooks';
 import TimerClass from './c_timer_class';
-import TimerHooks from './c_timer_hooks';
+import TimerHooks1 from './c_timer_hooks1';
+import TimerHooks2 from './c_timer_hooks2';
 import CounterClass from './c_counter_class';
 import CounterHooks from './c_counter_hooks';
 import TodoListClass from './c_todolist_class';
 import TodoListHooks from './c_todolist_hooks';
 import Footer from './c_footer';
-
-
 
 
 class App extends React.Component {
@@ -27,7 +26,8 @@ class App extends React.Component {
           <ClockHooks />
         </div>
         <TimerClass />
-        <TimerHooks initialValue={1} />
+        <TimerHooks1 />
+        <TimerHooks2 />
         <CounterClass initialValue={666} />
         <CounterHooks initialValue={666} />
         <TodoListClass />
