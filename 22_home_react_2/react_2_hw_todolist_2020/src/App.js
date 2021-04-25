@@ -21,17 +21,22 @@ class App extends React.Component {
     return (
       <>
         <Header />
+
         <div className="clocks">
           <ClockClass />
           <ClockHooks />
         </div>
+
         <TimerClass />
         <TimerHooks1 />
         <TimerHooks2 />
+
         <CounterClass initialValue={666} />
         <CounterHooks initialValue={666} />
+
         <TodoListClass />
         <TodoListHooks />
+        
         <Footer />
       </>
     );
